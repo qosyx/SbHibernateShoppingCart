@@ -9,17 +9,8 @@ package org.o7planning.SbHibernateShoppingCart.entity;
  *
  * @author archange
  */
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.NoSuchAlgorithmException;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,6 +19,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ACCOUNTS")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Account implements Serializable {
 
     private static final long serialVersionUID = -2054386655979281969L;

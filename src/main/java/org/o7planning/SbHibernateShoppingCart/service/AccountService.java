@@ -13,11 +13,14 @@ import org.o7planning.SbHibernateShoppingCart.entity.Account;
 import org.o7planning.SbHibernateShoppingCart.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author archange
  */
+//@Component
 @Component
 public class AccountService {
     
@@ -45,6 +48,7 @@ public class AccountService {
     public Account getById(String username) throws SQLException {
         
         return accountRepository.getOne(username);
+   
     }
 
     public AccountService() {
