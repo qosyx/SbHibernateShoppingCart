@@ -1,0 +1,15 @@
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/repository/OrderDetailRepository.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/entity/Order.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/repository/ProduitRepository.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/entity/Account.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/helpers/AccountWS.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/repository/AccountRepository.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/swagger/SwaggerConfig.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/repository/OrderRepository.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/controller/HomeController.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/entity/Product.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/CRUD/AccountCRUD.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/SbHibernateShoppingCartApplication.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/entity/OrderDetail.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/service/AccountService.java
+/home/archange/NetBeansProjects/SbHibernateShoppingCart/src/main/java/org/o7planning/SbHibernateShoppingCart/controller/AccountController.java
