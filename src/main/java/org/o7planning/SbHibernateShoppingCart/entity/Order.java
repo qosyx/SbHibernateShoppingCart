@@ -10,6 +10,7 @@ package org.o7planning.SbHibernateShoppingCart.entity;
  * @author archange
  */
  
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.Date;
  
@@ -22,6 +23,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "Orders", //
         uniqueConstraints = { @UniqueConstraint(columnNames = "Order_Num") })
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Order implements Serializable {
  
     private static final long serialVersionUID = -2576670215015463100L;

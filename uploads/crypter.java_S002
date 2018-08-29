@@ -1,0 +1,17 @@
+public static final String CIPHER_ALGORITHM = "AES";
+    public static final String KEY_ALGORITHM = "AES";
+    public static final String PASS_HASH_ALGORITHM = "SHA-256";
+    public static final String DEFAULT_PASS = "Your Default Security PassPhrase";
+
+    public String encrypt(String data) {
+        try {
+            Cipher cipher = buildCipher(DEFAULT_PASS, Cipher.ENCRYPT_MODE);
+            byte[] dataToSend = data.getBytes(Charsets.UTF_8);
+            byte[] encryptedData = cipher.doFinal(dataToSend);
+            return Base64.encodeBase64URLSafeString(encryptedData);
+
+        } catch (Exception e) {
+            log.warn(e.getMessage(), e);
+            throw new RuntimeException(e);
+        }
+    }

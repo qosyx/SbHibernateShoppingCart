@@ -9,6 +9,7 @@ package org.o7planning.SbHibernateShoppingCart.entity;
  *
  * @author archange
  */
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
  
 import javax.persistence.Column;
@@ -22,6 +23,7 @@ import javax.persistence.Table;
  
 @Entity
 @Table(name = "Order_Details")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class OrderDetail implements Serializable {
  
     private static final long serialVersionUID = 7550745928843183535L;

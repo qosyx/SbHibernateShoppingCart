@@ -9,6 +9,7 @@ package org.o7planning.SbHibernateShoppingCart.entity;
  *
  * @author archange
  */
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.Date;
  
@@ -22,6 +23,7 @@ import javax.persistence.TemporalType;
  
 @Entity
 @Table(name = "Products")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product implements Serializable {
  
     private static final long serialVersionUID = -1000119078147252957L;
@@ -37,8 +39,8 @@ public class Product implements Serializable {
     private double price;
  
     @Lob
-    @Column(name = "Image", length = Integer.MAX_VALUE, nullable = true)
-    private byte[] image;
+    @Column(name = "Image", nullable = true)
+    private String image;
      
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "Create_Date", nullable = false)
@@ -78,13 +80,13 @@ public class Product implements Serializable {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
- 
-    public byte[] getImage() {
+
+    public String getImage() {
         return image;
     }
- 
-    public void setImage(byte[] image) {
+
+    public void setImage(String image) {
         this.image = image;
     }
- 
+
 }
