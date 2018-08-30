@@ -92,4 +92,12 @@ public org.springframework.http.ResponseEntity<java.lang.String> org.o7planning.
 [m[31m2018-08-29 12:45:44.174 WAT [http-nio-8081-exec-9] o.h.e.j.s.SqlExceptionHelper ERROR: Unknown column 'product0_.image' in 'field list'
 [m[31m2018-08-29 12:46:10.602 WAT [http-nio-8081-exec-4] o.h.e.j.s.SqlExceptionHelper ERROR: Unknown column 'product0_.image' in 'field list'
 [m[31m2018-08-29 12:52:57.050 WAT [http-nio-8081-exec-8] o.h.e.j.s.SqlExceptionHelper ERROR: Table 'mydatabase.accounts' doesn't exist
+[m[31m2018-08-30 12:06:51.114 WAT [http-nio-8081-exec-4] o.h.e.j.s.SqlExceptionHelper ERROR: Table 'mydatabase.products' doesn't exist
+[m[31m2018-08-30 12:12:38.828 WAT [http-nio-8081-exec-9] o.h.e.j.s.SqlExceptionHelper ERROR: Table 'mydatabase.products' doesn't exist
+[m[31m2018-08-30 12:40:46.422 WAT [http-nio-8081-exec-4] o.h.e.j.s.SqlExceptionHelper ERROR: Unknown column 'product0_.etat_product' in 'field list'
+[m[31m2018-08-30 12:41:48.437 WAT [http-nio-8081-exec-3] o.h.e.j.s.SqlExceptionHelper ERROR: Unknown column 'product0_.etat_product' in 'field list'
+[m[31m2018-08-30 12:51:57.904 WAT [http-nio-8081-exec-4] o.h.e.j.s.SqlExceptionHelper ERROR: Unknown column 'product0_.etat_product' in 'field list'
+[m[31m2018-08-30 12:59:55.414 WAT [http-nio-8081-exec-6] o.h.e.j.s.SqlExceptionHelper ERROR: Unknown column 'product0_.etat_product' in 'field list'
+[m[31m2018-08-30 13:02:48.178 WAT [http-nio-8081-exec-4] o.h.e.j.s.SqlExceptionHelper ERROR: Unknown column 'product0_.etat_product' in 'field list'
+[m[31m2018-08-30 13:08:01.764 WAT [http-nio-8081-exec-6] o.h.e.j.s.SqlExceptionHelper ERROR: Unknown column 'product0_.etat' in 'field list'
 [m

@@ -25,6 +25,7 @@
     </properties>
 
     <dependencies>
+        
         <!-- https://mvnrepository.com/artifact/net.sf.hibernate/hibernate -->
         <dependency>
             <groupId>net.sf.hibernate</groupId>

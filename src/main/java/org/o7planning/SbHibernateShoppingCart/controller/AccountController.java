@@ -54,12 +54,19 @@ public class AccountController {
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Account>> findAllAccount() throws Exception {
         HttpStatus httpStatus = null;
-        //  List<AccountWS> accountWS = new ArrayList<AccountWS>();
+         List<AccountWS> accountWS = new ArrayList<AccountWS>();
         List<Account> accounts = accountService.getAll();
+        for (Account account : accounts) {
+          AccountWS  accountWS1 = new AccountWS();
+          accountWS1 = accountWS1.buildAccountws(account);
+          accountWS.add(accountWS1);
+            System.out.println(accountWS1.getPassword());
+        }
         httpStatus = HttpStatus.OK;
         return new ResponseEntity<>(accounts, httpStatus);
     }
 
+    
     @ApiOperation(value = "View a list of available products")
     @RequestMapping(method = RequestMethod.GET, value = "/{username}")
     public ResponseEntity<Account> findByUserName(@PathVariable("username") String username) throws Exception {

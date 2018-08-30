@@ -16,9 +16,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.o7planning.SbHibernateShoppingCart.enumration.EtatProduct;
 
 @Entity
-@Table(name = "ACCOUNTS")
+@Table(name = "accounts")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Account implements Serializable {
 
@@ -39,7 +40,7 @@ public class Account implements Serializable {
 
     @Column(name = "User_Role", length = 20, nullable = false)
     private String userRole;
-
+   
     public String getUserName() {
         return userName;
     }

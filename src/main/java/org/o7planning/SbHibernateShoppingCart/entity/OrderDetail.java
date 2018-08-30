@@ -22,7 +22,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
  
 @Entity
-@Table(name = "Order_Details")
+@Table(name = "order_Details")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class OrderDetail implements Serializable {
  

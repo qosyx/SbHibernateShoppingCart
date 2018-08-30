@@ -7,12 +7,12 @@ package org.o7planning.SbHibernateShoppingCart.service;
 
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.o7planning.SbHibernateShoppingCart.entity.Product;
+import org.o7planning.SbHibernateShoppingCart.enumration.EtatProduct;
 import org.o7planning.SbHibernateShoppingCart.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,12 +33,12 @@ public class ProductService {
     public Product create(Product product, String nameFichier) throws SQLException {
         String nomFichierComplet = nameFichier + "_" + product.getCode();
         product.setImage(nomFichierComplet);
-        product.setCreateDate(Date.from(Instant.MIN));
+      
+        //product.setCreateDate(Date.from(Instant.MIN));
         produitRepository.save(product);
 
         return product;
     }
-
     public Product update(Product product, String nameFichier) throws SQLException {
         String nomFichierComplet = nameFichier + "_" + product.getCode();
         product.setImage(nomFichierComplet);
