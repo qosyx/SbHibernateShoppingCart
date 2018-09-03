@@ -6,6 +6,7 @@
     <class>org.o7planning.SbHibernateShoppingCart.entity.Order</class>
     <class>org.o7planning.SbHibernateShoppingCart.entity.OrderDetail</class>
     <class>org.o7planning.SbHibernateShoppingCart.entity.Product</class>
+    <class>org.o7planning.SbHibernateShoppingCart.service.AchatService</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mydatabase?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
