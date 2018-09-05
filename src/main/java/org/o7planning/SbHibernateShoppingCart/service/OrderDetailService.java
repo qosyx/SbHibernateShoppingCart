@@ -58,17 +58,4 @@ public class OrderDetailService {
         }
         return true;
     }
-
-
-
-
-
-    public String getOrderById(Order order) {
-        System.out.println(orderDetailRepository.getOne(order.getId()).getId());
-        return orderDetailRepository.getOne(order.getId()).getId();
-
-
-    }
-    
-    
 }

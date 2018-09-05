@@ -34,7 +34,7 @@ public class ProductClient {
     public Product create(Product product,String nameFichier) throws IOException {
         
         //  String uri = propertiesFileUtils.getAppUrl("publication-service-fonctionnel-create");
-      String uri="http://localhost:8080/onlinebank/products";
+      String uri="http://localhost:8081/onlinebank/products";
         String uriGet = uri + "/" + nameFichier;
         String requestBody = GsonUtils.toJSONWithoutClassName(product);
         MultiValueMap<String, Object> headers = new LinkedMultiValueMap<String, Object>();
@@ -51,7 +51,7 @@ public class ProductClient {
 
 
     public Product getProduct(String code) throws IOException {
-        String uri="http://localhost:8080/onlinebank/products";
+        String uri="http://localhost:8081/onlinebank/products";
         String uriGet = uri + "/" + code;
 
         ResponseEntity<String> response = restTemplate.getForEntity(uriGet,String.class);
@@ -59,7 +59,6 @@ public class ProductClient {
         Product product  = GsonUtils.getObjectFromJson(jsonData,Product.class);
         return product;
     }
-
 
 
 }

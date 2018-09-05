@@ -5,6 +5,7 @@
  */
 package org.o7planning.SbHibernateShoppingCart.helpers;
 
+import org.o7planning.SbHibernateShoppingCart.entity.Order;
 import org.o7planning.SbHibernateShoppingCart.entity.OrderDetail;
 import org.o7planning.SbHibernateShoppingCart.entity.Product;
 
@@ -35,16 +36,30 @@ public class ProduitAchat {
     }
 
 
-    public ProduitAchat(Product product, OrderDetail orderDetail) {
-
+    public ProduitAchat(Product product, Order order) {
         this.codeproduit = product.getCode();
-        this.amount = orderDetail.getAmount();
-        this.idOrder = orderDetail.getOrder().getOrderNum();
-        this.idOrderDetail = orderDetail.getId();
+        this.amount = order.getAmount();
+        this.idOrder = order.getOrderNum();
+        this.idOrderDetail = order.getId();
         this.imageproduit = product.getImage();
         this.nameproduit = product.getName();
         this.price = product.getPrice();
-        this.quanity = orderDetail.getQuanity();
+     //   this.quanity = order.ge.getQuanity();
+    }
+
+
+    public ProduitAchat build(Product product, Order order) {
+        ProduitAchat produitAchat = new ProduitAchat();
+
+        produitAchat.setCodeproduit(product.getCode());
+        produitAchat.setAmount(order.getAmount());
+        produitAchat.setIdOrder(order.getOrderNum());
+        produitAchat.setIdOrderDetail(order.getId());
+        produitAchat.setImageproduit(product.getImage());
+        produitAchat.setNameproduit(product.getName());
+        produitAchat.setPrice(product.getPrice());
+        return produitAchat;
+
     }
 
     public String getCodeproduit() {

@@ -19,6 +19,7 @@ import org.o7planning.SbHibernateShoppingCart.entity.Product;
 import org.o7planning.SbHibernateShoppingCart.enumration.EtatProduct;
 import org.o7planning.SbHibernateShoppingCart.gson.HibernateProxyTypeAdapter;
 import org.o7planning.SbHibernateShoppingCart.helpers.ProduitAchat;
+import org.o7planning.SbHibernateShoppingCart.helpers.ProduitAchatWS;
 import org.o7planning.SbHibernateShoppingCart.repository.OrderDetailRepository;
 import org.o7planning.SbHibernateShoppingCart.repository.OrderRepository;
 import org.o7planning.SbHibernateShoppingCart.repository.ProduitRepository;
@@ -109,21 +110,32 @@ public class ProductService {
     }
 
     public List<ProduitAchat> build(String customerName) throws IOException {
-
         List<ProduitAchat> produitAchatList = new ArrayList<ProduitAchat>();
-
-        //List<Order>orderList = orderRepository.findByCustomerName(customerName);
+        ProduitAchat produitAchat = new ProduitAchat();
         List<OrderDetail> orderDetailList = orderDetailRepository.findAll();
-
         for (OrderDetail orderDetail : orderDetailList) {
+
             Order order = orderDetail.getOrder();
-            if (order.getCustomerName().equals(customerName)){
-                System.out.println(order.getId());
+            Product product = orderDetail.getProduct();
+            if (order.getCustomerName().equals(customerName)) {
+
+                produitAchat.setCodeproduit(product.getCode());
+                produitAchat.setAmount(orderDetail.getAmount());
+                produitAchat.setIdOrder(order.getOrderNum());
+                produitAchat.setIdOrderDetail(order.getId());
+                produitAchat.setImageproduit(product.getImage());
+                produitAchat.setNameproduit(product.getName());
+                produitAchat.setPrice(orderDetail.getPrice());
+                produitAchat.setQuanity(orderDetail.getQuanity());
                 GsonBuilder b = new GsonBuilder();
                 b.registerTypeAdapterFactory(HibernateProxyTypeAdapter.FACTORY);
                 Gson gson = b.create();
+                System.out.println(gson.toJson(product));
                 System.out.println(gson.toJson(order));
+                produitAchatList.add(produitAchat);
             }
+
+
         }
 
         return produitAchatList;

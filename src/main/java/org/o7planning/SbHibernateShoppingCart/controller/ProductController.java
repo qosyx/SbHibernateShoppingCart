@@ -111,7 +111,7 @@ public class ProductController {
 
 
     @ApiOperation(value = "View a list of available products")
-    @RequestMapping(method = RequestMethod.GET, value = "produit/{customerName}")
+    @RequestMapping(method = RequestMethod.GET, value = "achat/par/ok/{customerName}")
     public ResponseEntity<List<ProduitAchat>> findByProd(@PathVariable("customerName") String customerName) throws Exception {
         HttpStatus httpStatus = null;
         //  List<ProductWS> productWS = new ArrayList<ProductWS>();

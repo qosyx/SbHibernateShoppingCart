@@ -35,7 +35,7 @@ public class OrderDetailClient {
     public OrderDetail read(String id) throws IOException {
 
         //  String uri = propertiesFileUtils.getAppUrl("publication-service-fonctionnel-create");
-        String uri = "http://localhost:8080/onlinebank/orderdetails";
+        String uri = "http://localhost:8081/onlinebank/orderdetails";
         String uriGet = uri + "/" + id;
 
         MultiValueMap<String, Object> headers = new LinkedMultiValueMap<String, Object>();
