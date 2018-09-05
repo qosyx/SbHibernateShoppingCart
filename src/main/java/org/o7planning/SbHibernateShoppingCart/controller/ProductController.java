@@ -11,6 +11,9 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.o7planning.SbHibernateShoppingCart.entity.Product;
+import org.o7planning.SbHibernateShoppingCart.enumration.EtatProduct;
+import org.o7planning.SbHibernateShoppingCart.helpers.ProduitAchat;
+import org.o7planning.SbHibernateShoppingCart.helpers.ProduitAchatWS;
 import org.o7planning.SbHibernateShoppingCart.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -92,5 +95,33 @@ public class ProductController {
 
         return new ResponseEntity<>(product, httpStatus);
     }
+
+     
+    
+    
+      @ApiOperation(value = "View a list of available products  by etat")
+    @RequestMapping(method = RequestMethod.GET,value = "etat/{etat}")
+    public ResponseEntity<List<Product>> findByEtat(@PathVariable("etat") EtatProduct etatProduct) throws Exception {
+        HttpStatus httpStatus = null;
+        //  List<ProductWS> productWS = new ArrayList<ProductWS>();
+        List<Product> products = productService.getByEtat(etatProduct);
+        httpStatus = HttpStatus.OK;
+        return new ResponseEntity<>(products, httpStatus);
+    }
+
+
+    @ApiOperation(value = "View a list of available products")
+    @RequestMapping(method = RequestMethod.GET, value = "produit/{customerName}")
+    public ResponseEntity<List<ProduitAchat>> findByProd(@PathVariable("customerName") String customerName) throws Exception {
+        HttpStatus httpStatus = null;
+        //  List<ProductWS> productWS = new ArrayList<ProductWS>();
+        List<ProduitAchat> productAchat = productService.build(customerName);
+        httpStatus = HttpStatus.OK;
+
+        return new ResponseEntity<>(productAchat, httpStatus);
+    }
+
+
+
 
 }

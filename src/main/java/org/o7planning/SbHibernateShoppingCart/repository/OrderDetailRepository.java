@@ -16,4 +16,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface OrderDetailRepository extends JpaRepository<OrderDetail, String>{
   ///  List<OrderDetail> findByPRODUCT_ID(String prodcut_id);
+    //List<OrderDetail> findByOrder();
+  Order findByOrder(OrderDetail orderDetail);
 }

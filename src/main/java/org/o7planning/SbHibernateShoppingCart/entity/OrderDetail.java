@@ -10,6 +10,9 @@ package org.o7planning.SbHibernateShoppingCart.entity;
  * @author archange
  */
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.google.gson.annotations.JsonAdapter;
+
 import java.io.Serializable;
  
 import javax.persistence.Column;
@@ -20,7 +23,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
- 
+import org.o7planning.SbHibernateShoppingCart.gson.PackedJsonTypeAdapterFactory;
+
 @Entity
 @Table(name = "order_Details")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -35,6 +39,7 @@ public class OrderDetail implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ORDER_ID", nullable = false, //
             foreignKey = @ForeignKey(name = "ORDER_DETAIL_ORD_FK"))
+    @JsonAdapter(PackedJsonTypeAdapterFactory.class)
     private Order order;
  
     @ManyToOne(fetch = FetchType.LAZY)

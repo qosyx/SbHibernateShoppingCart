@@ -6,6 +6,8 @@
 package org.o7planning.SbHibernateShoppingCart.service;
 
 import java.util.List;
+
+import org.o7planning.SbHibernateShoppingCart.entity.Order;
 import org.o7planning.SbHibernateShoppingCart.entity.OrderDetail;
 import org.o7planning.SbHibernateShoppingCart.repository.OrderDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +58,17 @@ public class OrderDetailService {
         }
         return true;
     }
-    
+
+
+
+
+
+    public String getOrderById(Order order) {
+        System.out.println(orderDetailRepository.getOne(order.getId()).getId());
+        return orderDetailRepository.getOne(order.getId()).getId();
+
+
+    }
     
     
 }

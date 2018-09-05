@@ -6,20 +6,27 @@
 package org.o7planning.SbHibernateShoppingCart.service;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.o7planning.SbHibernateShoppingCart.entity.Order;
+import org.o7planning.SbHibernateShoppingCart.entity.OrderDetail;
 import org.o7planning.SbHibernateShoppingCart.entity.Product;
 import org.o7planning.SbHibernateShoppingCart.enumration.EtatProduct;
+import org.o7planning.SbHibernateShoppingCart.gson.HibernateProxyTypeAdapter;
+import org.o7planning.SbHibernateShoppingCart.helpers.ProduitAchat;
+import org.o7planning.SbHibernateShoppingCart.repository.OrderDetailRepository;
+import org.o7planning.SbHibernateShoppingCart.repository.OrderRepository;
 import org.o7planning.SbHibernateShoppingCart.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- *
  * @author archange
  */
 @Component
@@ -30,21 +37,37 @@ public class ProductService {
     @Autowired
     private ProduitRepository produitRepository;
 
+    @Autowired
+    private OrderDetailRepository orderDetailRepository;
+
+    @Autowired
+    private OrderRepository orderRepository;
+
+    @Autowired
+    OrderDetailService orderDetailService;
+
     public Product create(Product product, String nameFichier) throws SQLException {
         String nomFichierComplet = nameFichier + "_" + product.getCode();
         product.setImage(nomFichierComplet);
-      
+
         //product.setCreateDate(Date.from(Instant.MIN));
         produitRepository.save(product);
 
         return product;
     }
+
     public Product update(Product product, String nameFichier) throws SQLException {
         String nomFichierComplet = nameFichier + "_" + product.getCode();
         product.setImage(nomFichierComplet);
         produitRepository.save(product);
 
         return product;
+    }
+
+    public boolean UpdateById(String id) throws SQLException {
+        Product product = produitRepository.getOne(id);
+        produitRepository.save(product);
+        return true;
     }
 
     public String createfile(MultipartFile file, String id) throws SQLException {
@@ -66,7 +89,6 @@ public class ProductService {
     public List<Product> getAll() throws SQLException {
         List<Product> products = new ArrayList<Product>();
         products = produitRepository.findAll();
-
         return products;
 
     }
@@ -79,5 +101,33 @@ public class ProductService {
         produitRepository.delete(product);
         return true;
     }
+
+    public List<Product> getByEtat(EtatProduct etatProduct) {
+        List<Product> products = new ArrayList<Product>();
+        products = produitRepository.findByetat(etatProduct);
+        return products;
+    }
+
+    public List<ProduitAchat> build(String customerName) throws IOException {
+
+        List<ProduitAchat> produitAchatList = new ArrayList<ProduitAchat>();
+
+        //List<Order>orderList = orderRepository.findByCustomerName(customerName);
+        List<OrderDetail> orderDetailList = orderDetailRepository.findAll();
+
+        for (OrderDetail orderDetail : orderDetailList) {
+            Order order = orderDetail.getOrder();
+            if (order.getCustomerName().equals(customerName)){
+                System.out.println(order.getId());
+                GsonBuilder b = new GsonBuilder();
+                b.registerTypeAdapterFactory(HibernateProxyTypeAdapter.FACTORY);
+                Gson gson = b.create();
+                System.out.println(gson.toJson(order));
+            }
+        }
+
+        return produitAchatList;
+    }
+
 
 }

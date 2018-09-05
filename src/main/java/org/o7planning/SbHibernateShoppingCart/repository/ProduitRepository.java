@@ -5,7 +5,9 @@
  */
 package org.o7planning.SbHibernateShoppingCart.repository;
 
+import java.util.List;
 import org.o7planning.SbHibernateShoppingCart.entity.Product;
+import org.o7planning.SbHibernateShoppingCart.enumration.EtatProduct;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -13,6 +15,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author archange
  */
 public interface  ProduitRepository extends JpaRepository<Product, Object>{
-
+List<Product> findByetat(EtatProduct etatProduct);
    
 }
